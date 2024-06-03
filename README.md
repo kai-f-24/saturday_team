@@ -46,6 +46,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-## install
+## インストール
+npm install express
+npm install typescript ts-node @types/node @types/express --save-dev react-router-dom axios 
 
-npm i react-router-dom
+## 実行
+npm run dev
