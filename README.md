@@ -48,6 +48,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## インストール
 npm install express
+
 npm install typescript ts-node @types/node @types/express --save-dev react-router-dom axios 
 
 ## 実行
