@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "install": "^0.13.0",
+    "nodemon": "^3.1.3",
     "npm": "^10.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,8 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "concurrently 'npm run server' 'npm run client'",
-    "server": "ts-node -P tsconfig.backend.json src/backend/index.ts",
+    "dev": "concurrently -n \"server 🧠,client 🖥 \" 'npm run server' 'npm run client'",
+    "server": "nodemon --watch src/backend --ext ts --exec \"ts-node -P tsconfig.backend.json src/backend/index.ts\"",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
