@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/header/header";
 
 function Entry() {
   const [success, setSuccess] = useState<string>("");
@@ -13,7 +14,7 @@ function Entry() {
         setSuccess(response.data.success);
         setText1(response.data.text1);
         setText2(response.data.text2);
-        console.log('response内容 : ',response);
+        console.log("response内容 : ", response);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -22,12 +23,13 @@ function Entry() {
 
   return (
     <>
+      <Header />
       <h1>EntryPage</h1>
       <p>ログイン・サインインページ</p>
       <p>すでにログイン済みならば、home.tsxに自動遷移させたい</p>
-      <h2>{ success }</h2>
-      <p> { text1 }</p>
-      <p> { text2 }</p>
+      <h2>{success}</h2>
+      <p> {text1}</p>
+      <p> {text2}</p>
     </>
   );
 }

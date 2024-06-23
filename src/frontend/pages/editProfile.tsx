@@ -1,8 +1,9 @@
+import Header from "../components/header/header";
+
 function EditProfile() {
   return (
     <>
-      <h1>EditProjectPage</h1>
-      <p>プロフィールを編集するページ</p>
+      <Header />
     </>
   );
 }

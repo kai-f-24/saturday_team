@@ -1,8 +1,6 @@
 import {
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
   Text,
   Heading,
   Stack,
@@ -13,14 +11,14 @@ import { sampleProjectBasicDataType } from "../../../backend/sampleData/projectD
 import { NextButton } from "../button/buttons";
 
 interface projectBasicCardProps {
-  projects: sampleProjectBasicDataType[];
+  cardInfoList: sampleProjectBasicDataType[];
 }
 
-const ProjectBasicCard = ({ projects }: projectBasicCardProps) => {
+const ProjectBasicCard = ({ cardInfoList }: projectBasicCardProps) => {
   const theme = useTheme();
   return (
     <Stack spacing={4}>
-      {projects.map((project) => (
+      {cardInfoList.map((cardInfo) => (
         <Card className="w-[700px]">
           <CardBody
             className="bg-base"
@@ -31,23 +29,23 @@ const ProjectBasicCard = ({ projects }: projectBasicCardProps) => {
           >
             <Flex justifyContent="space-between">
               <Heading mb="20px" mt="8px" fontSize="36px">
-                {project.title}
+                {cardInfo.title}
               </Heading>
               <NextButton value="詳細" />
             </Flex>
 
             <Heading
               size="md"
-              pl='10px'
-              mb='6px'
+              pl="10px"
+              mb="6px"
               borderLeftWidth="7px"
               borderColor={theme.colors.green[450]}
             >
-              {project.description.name}
+              {cardInfo.description.name}
             </Heading>
             <Flex justifyContent="center">
               <Text w="88%" mb="12px">
-                {project.description.text}
+                {cardInfo.description.text}
               </Text>
             </Flex>
           </CardBody>

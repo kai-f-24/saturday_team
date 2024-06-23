@@ -1,7 +1,9 @@
+import Header from "../components/header/header";
+
 function ProjectInfo() {
   return (
     <>
-      <h1>ProjectInfoPage</h1>
+      <Header />
     </>
   );
 }

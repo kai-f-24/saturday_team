@@ -12,26 +12,30 @@ import ProjectBasicCard from "../card/projectBasicCard";
 import { sampleProjectBasicDataType } from "../../../backend/sampleData/projectData/projectBasicData";
 
 interface projectTabProps {
-  recruitmentProjects: sampleProjectBasicDataType[];
-  participationProjects: sampleProjectBasicDataType[];
+  cardList: CardListType[];
 }
 
-const ProjectTab = ({
-  recruitmentProjects,
-  participationProjects,
-}: projectTabProps) => {
+interface CardListType {
+  cardCategory: string;
+  cardInfoList: sampleProjectBasicDataType[];
+}
+
+const ProjectTab = ({ cardList }: projectTabProps) => {
   const theme = useTheme();
   return (
-    <div className="bg-base">
+    <Flex className="justify-center bg-base">
       <Tabs position="relative" variant="unstyled">
         <Flex className="justify-center">
           <TabList>
-            <Tab className="mr-8" color={theme.colors.blue[250]} fontWeight="bold">
-              募集中のプロジェクト
-            </Tab>
-            <Tab className="ml-8" color={theme.colors.blue[250]} fontWeight="bold">
-              参加中のプロジェクト
-            </Tab>
+            {cardList.map((card) => (
+              <Tab
+                className="mr-8"
+                color={theme.colors.blue[250]}
+                fontWeight="bold"
+              >
+                {card.cardCategory}
+              </Tab>
+            ))}
           </TabList>
         </Flex>
         <TabIndicator
@@ -42,15 +46,14 @@ const ProjectTab = ({
           background={theme.colors.blue[250]}
         />
         <TabPanels>
-          <TabPanel>
-            <ProjectBasicCard projects={recruitmentProjects} />
-          </TabPanel>
-          <TabPanel>
-            <ProjectBasicCard projects={participationProjects} />
-          </TabPanel>
+          {cardList.map((card) => (
+            <TabPanel>
+              <ProjectBasicCard cardInfoList={card.cardInfoList} />
+            </TabPanel>
+          ))}
         </TabPanels>
       </Tabs>
-    </div>
+    </Flex>
   );
 };
 

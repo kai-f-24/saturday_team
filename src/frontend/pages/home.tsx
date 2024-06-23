@@ -1,5 +1,3 @@
-import { Flex } from "@chakra-ui/react";
-
 import Header from "../components/header/header";
 import ProjectTab from "../assets/tabs/tabs";
 
@@ -8,6 +6,16 @@ import { sampleProjectBasicDataList } from "../../backend/sampleData/projectData
 const recruitmentProjectBasicDataList = sampleProjectBasicDataList;
 const participationProjectBasicDataList = sampleProjectBasicDataList;
 
+const cardList = [
+  {
+    cardCategory: "募集中のプロジェクト",
+    cardInfoList: recruitmentProjectBasicDataList,
+  },
+  {
+    cardCategory: "参加中のプロジェクト",
+    cardInfoList: participationProjectBasicDataList,
+  },
+];
 
 // アイコン情報
 
@@ -15,12 +23,7 @@ function Home() {
   return (
     <>
       <Header />
-      <Flex className="justify-center">
-      <ProjectTab
-        participationProjects={participationProjectBasicDataList}
-        recruitmentProjects={recruitmentProjectBasicDataList}
-      />
-      </Flex>
+      <ProjectTab cardList={cardList} />
     </>
   );
 }

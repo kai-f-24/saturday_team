@@ -1,10 +1,30 @@
+import Header from "../components/header/header";
+import ProfileBlock from "../components/profile/profileBlock";
+import ProjectTab from "../assets/tabs/tabs";
+import { sampleUserInfoDataList } from "../../backend/sampleData/userData/userInfoData";
+import {
+  sampleUserInfoPageParticipatedProjectBasicDataList,
+  sampleUserInfoPageProducingProjectBasicDataList,
+} from "../../backend/sampleData/projectData/userInfoPageProjectBasicData";
+
+// 後で関数にする
+const cardList = [
+  {
+    cardCategory: "参加中のプロジェクト",
+    cardInfoList: sampleUserInfoPageProducingProjectBasicDataList,
+  },
+  {
+    cardCategory: "参加したプロジェクト",
+    cardInfoList: sampleUserInfoPageParticipatedProjectBasicDataList,
+  },
+];
+
 function Profile() {
   return (
     <>
-      <h1>プロフィールページ</h1>
-      <p>
-        このページではユーザーのプロフィールや参加中・過去に参加したプロジェクトなどを扱う
-      </p>
+      <Header />
+      <ProfileBlock user={sampleUserInfoDataList[0]} />
+      <ProjectTab cardList={cardList} />
     </>
   );
 }
