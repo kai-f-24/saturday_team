@@ -20,33 +20,29 @@ export const sampleProjectBasicDataList: sampleProjectBasicDataType[] = [
     title: "サンプルデータ１",
     startDate: "2024/06/01",
     endDate: "2024/10/21",
-    description: 
-      {
-        name: "(必須入力)プロジェクト概要1",
-        text: sampleText,
-      },
+    description: {
+      name: "(必須入力)プロジェクト概要1",
+      text: sampleText,
+    },
   },
   {
     id: "abcdefghijk123456789",
     title: "サンプルデータ2",
     startDate: "2024/04/01",
     endDate: "2024/12/21",
-    description: 
-      {
-        name: "(必須入力)プロジェクト概要",
-        text: sampleText,
-      },
-    
+    description: {
+      name: "(必須入力)プロジェクト概要",
+      text: sampleText,
+    },
   },
   {
     id: "abcdk1234efghij56789",
     title: "サンプルデータ3",
     startDate: "2024/07/01",
     endDate: "2024/8/31",
-    description: 
-      {
-        name: "(必須入力)プロジェクト概要",
-        text: sampleText,
-      },
+    description: {
+      name: "(必須入力)プロジェクト概要",
+      text: sampleText,
+    },
   },
 ];

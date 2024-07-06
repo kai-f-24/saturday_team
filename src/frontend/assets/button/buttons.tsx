@@ -1,4 +1,7 @@
 import { Button } from "@chakra-ui/react";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 interface BaseButtonProps {
   value: string; // 出力するテキスト
@@ -26,8 +29,10 @@ export const CreateButton = ({ value, customStyles = {} }: BaseButtonProps) => {
 };
 
 interface nextButtonProps {
-  value: string;
+  value?: string;
   customStyles?: Partial<typeof defaultNextButtonStyles>;
+  onClick?: () => void;
+  icon?: "plus" | "trash"
 }
 
 const defaultNextButtonStyles = {
@@ -37,8 +42,26 @@ const defaultNextButtonStyles = {
   tailwind: "px-8 mx-8",
 };
 
-export const NextButton = ({ value, customStyles }: nextButtonProps) => {
+export const NextButton = ({
+  value,
+  customStyles,
+  onClick,
+  icon,
+}: nextButtonProps) => {
   const styles = { ...defaultNextButtonStyles, ...customStyles };
+
+  let iconValue;
+  switch(icon){
+    case "plus":
+      iconValue = faPlus;
+      break;
+    case "trash":
+      iconValue = faTrash;
+      break
+    default:
+      iconValue = faPlus;
+  }
+
   return (
     <Button
       colorScheme={styles.colorScheme}
@@ -46,8 +69,10 @@ export const NextButton = ({ value, customStyles }: nextButtonProps) => {
       height={styles.height}
       className={styles.tailwind}
       variant="outline"
+      onClick={onClick}
     >
-      {value}
+      {icon &&  <FontAwesomeIcon icon={iconValue} />}
+      {value && <span>{value}</span>}
     </Button>
   );
 };
