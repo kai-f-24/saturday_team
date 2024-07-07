@@ -1,5 +1,5 @@
 import { Box, Input } from "@chakra-ui/react";
-import { handleChangeInputType } from "../types/types";
+import { handleChangeInputType } from "../../types/types";
 
 // 型継承したほうが保守性が高い？
 interface TitleFormProps {
