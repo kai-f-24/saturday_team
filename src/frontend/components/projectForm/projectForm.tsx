@@ -119,8 +119,10 @@ const ProjectForm = ({ projectDetailInfo }: ProjectProps) => {
       </Flex>
       <VStack my={8}>
         {projectDetailInfo ? (
+          // 既存プロジェクト情報編集
           <EditProjectForm />
         ) : (
+          // 新規プロジェクト情報入力
           <CreateProjectForm
             inputs={inputs}
             handleChangeInput={handleChangeInput}

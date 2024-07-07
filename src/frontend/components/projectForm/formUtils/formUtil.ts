@@ -3,12 +3,12 @@ import { projectDetailDataType } from "../../../../backend/sampleData/projectDat
 export  class formUtile {
   constructor(
     public input: projectDetailDataType,
-    public field: "title" | "overview" | "date" | "recruitment", // 項目をぼる
-    public name: string = "", // 項目の中の部分を絞る
-    public value: string | number | string[] = "", // e.target.valueを変換しておく
-    public index: number = 0, // 概要or募集要項の配列番号
+    public field: "title" | "overview" | "date" | "recruitment", // 項目
+    public name: string = "", // 項目の中の変更箇所
+    public value: string | number | string[] = "", // 変更された値
+    public index: number = 0, // fieldの配列番号
     public otherSkillsIndex: number = 0, // その他のスキルの配列番号
-    public option: string = "" // 入力かボタンの追加かを絞る
+    public option: string = "" // 
   ) {
     this.input = input;
     this.field = field;

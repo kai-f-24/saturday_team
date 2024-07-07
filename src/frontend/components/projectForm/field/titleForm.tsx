@@ -8,11 +8,10 @@ interface TitleFormProps {
 
 const TitleForm: React.FC<TitleFormProps> = ({ handleChangeInput }) => {
   return (
-    <Box w={"90%"}>
-      {/* title */}
+    <Box w={"90%"} mt={6} mb={4}>
       <Input
         placeholder="プロジェクトタイトル"
-        w={"40%"}
+        w={"60%"}
         onChange={(e) => handleChangeInput(e, "title")}
       />
     </Box>
