@@ -6,10 +6,10 @@ import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
 } from "./types/types";
-import DateForm from "./dateForm";
-import TitleForm from "./titleForm";
-import OverviewForm from "./overviewForm";
-import PositionForm from "./positionForm";
+import DateForm from "./field/dateForm";
+import TitleForm from "./field/titleForm";
+import OverviewForm from "./field/overviewForm";
+import PositionForm from "./field/positionForm";
 
 interface CreateProjectFormProps {
   inputs: projectDetailDataType;

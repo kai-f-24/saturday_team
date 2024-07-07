@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem, Input, Text, VStack } from "@chakra-ui/react";
-import TitleBlock from "../../assets/title/title";
-import { handleChangeInputType } from "./types/types";
+import TitleBlock from "../../../assets/title/title";
+import { handleChangeInputType } from "../types/types";
 
 interface DateFormProps {
   handleChangeInput: handleChangeInputType;

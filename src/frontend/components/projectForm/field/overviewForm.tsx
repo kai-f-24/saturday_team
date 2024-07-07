@@ -1,17 +1,11 @@
-import {
-  Box,
-  Input,
-  Textarea,
-  VStack,
-  useTheme,
-} from "@chakra-ui/react";
-import TitleBlock from "../../assets/title/title";
-import { NextButton } from "../../assets/button/buttons";
+import { Box, Input, Textarea, VStack, useTheme } from "@chakra-ui/react";
+import TitleBlock from "../../../assets/title/title";
+import { NextButton } from "../../../assets/button/buttons";
 import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
-} from "./types/types";
-import { projectDetailDataType } from "../../../backend/sampleData/projectData/projectDetailData";
+} from "../types/types";
+import { projectDetailDataType } from "../../../../backend/sampleData/projectData/projectDetailData";
 
 interface OverviewFormProps {
   inputs: projectDetailDataType;

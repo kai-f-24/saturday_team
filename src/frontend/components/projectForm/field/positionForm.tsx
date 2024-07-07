@@ -11,13 +11,13 @@ import {
   VStack,
   useTheme,
 } from "@chakra-ui/react";
-import TitleBlock from "../../assets/title/title";
-import { NextButton } from "../../assets/button/buttons";
-import { projectDetailDataType } from "../../../backend/sampleData/projectData/projectDetailData";
+import TitleBlock from "../../../assets/title/title";
+import { NextButton } from "../../../assets/button/buttons";
+import { projectDetailDataType } from "../../../../backend/sampleData/projectData/projectDetailData";
 import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
-} from "./types/types";
+} from "../types/types";
 
 interface PositionFormProps {
   inputs: projectDetailDataType;
