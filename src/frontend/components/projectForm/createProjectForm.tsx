@@ -9,7 +9,7 @@ import {
 import DateForm from "./field/dateForm";
 import TitleForm from "./field/titleForm";
 import OverviewForm from "./field/overviewForm";
-import PositionForm from "./field/positionForm";
+import PositionForm from "./field/position/positionForm";
 
 interface CreateProjectFormProps {
   inputs: projectDetailDataType;
