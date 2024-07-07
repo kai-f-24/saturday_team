@@ -6,6 +6,7 @@ import {
   handleChangeInputType,
 } from "../../types/types";
 import { projectDetailDataType } from "../../../../../backend/sampleData/projectData/projectDetailData";
+import OverviewComponent from "./overviewComponet";
 
 interface OverviewFormProps {
   inputs: projectDetailDataType;
@@ -23,58 +24,23 @@ const OverviewForm: React.FC<OverviewFormProps> = ({
   const theme = useTheme();
   return (
     <>
-      <Box w={"90%"} mb={4}>
-        <TitleBlock value="プロジェクト概要" />
-        <VStack>
-          <Textarea
-            w={"90%"}
-            height={"280px"}
-            resize={"none"}
-            bg={"white"}
-            onChange={(e) => handleChangeInput(e, "overview", "text")}
-            placeholder="プロジェクトの概要を入力"
-          />
-        </VStack>
-      </Box>
+      <OverviewComponent
+        handleChangeInput={handleChangeInput}
+        handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+        text={inputs.overview[0].text}
+      />
       {inputs.overview.slice(1).map((input, index) => {
         const adjustIndex = index + 1;
         return (
-          <Box key={index} w={"90%"} mb={4}>
-            <Box
-              borderLeftWidth={"7px"}
-              borderColor={theme.colors.green[450]}
-              pl={"10px"}
-              my={2}
-            >
-              <Input
-                // value={input.title}
-                w={"40%"}
-                onChange={(e) =>
-                  handleChangeInput(e, "overview", "title", adjustIndex)
-                }
-              />
-            </Box>
-            <VStack>
-              <Textarea
-                w={"90%"}
-                height={"280px"}
-                resize={"none"}
-                bg={"white"}
-                // value={input.text}
-                placeholder="プロジェクトの概要を入力"
-                onChange={(e) =>
-                  handleChangeInput(e, "overview", "text", adjustIndex)
-                }
-              />
-              <NextButton
-                value="削除"
-                customStyles={{ colorScheme: "red" }}
-                onClick={() =>
-                  handleRemoveFieldOrBlock("overview", undefined, index)
-                }
-              />
-            </VStack>
-          </Box>
+          <>
+            <OverviewComponent
+              handleChangeInput={handleChangeInput}
+              handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+              title={input.title}
+              text={input.text}
+              index={adjustIndex}
+            />
+          </>
         );
       })}
       <NextButton

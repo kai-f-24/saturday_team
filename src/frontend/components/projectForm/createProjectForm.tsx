@@ -9,7 +9,7 @@ import {
 import DateForm from "./field/date/dateForm";
 import TitleForm from "./field/title/titleForm";
 import OverviewForm from "./field/overview/overviewForm";
-import PositionForm from "./field/position/positionForm";
+import RecruitmentForm from "./field/recruitment/recruitmentForm";
 
 interface CreateProjectFormProps {
   inputs: projectDetailDataType;
@@ -43,7 +43,7 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({
 
       <DateForm handleChangeInput={handleChangeInput} />
 
-      <PositionForm
+      <RecruitmentForm
         inputs={inputs}
         handleChangeInput={handleChangeInput}
         handleAddFieldOrBlock={handleAddFieldOrBlock}

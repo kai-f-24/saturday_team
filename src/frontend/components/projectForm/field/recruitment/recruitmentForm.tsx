@@ -8,16 +8,17 @@ import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
 } from "../../types/types";
-import FieldComponents from "./fieldComponet";
+import FieldComponents from "./recruitmentComponet";
+import RecruitmentComponents from "./recruitmentComponet";
 
-interface PositionFormProps {
+interface RecruitmentFormProps {
   inputs: projectDetailDataType;
   handleChangeInput: handleChangeInputType;
   handleAddFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   handleRemoveFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
 }
 
-const PositionForm: React.FC<PositionFormProps> = ({
+const RecruitmentForm: React.FC<RecruitmentFormProps> = ({
   inputs,
   handleChangeInput,
   handleAddFieldOrBlock,
@@ -28,7 +29,7 @@ const PositionForm: React.FC<PositionFormProps> = ({
     <>
       <Box w={"90%"} mb={4}>
         <TitleBlock value="募集ポジション" />
-        <FieldComponents
+        <RecruitmentComponents
           handleChangeInput={handleChangeInput}
           handleAddFieldOrBlock={handleAddFieldOrBlock}
           handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
@@ -40,7 +41,7 @@ const PositionForm: React.FC<PositionFormProps> = ({
         {inputs.recruitment.slice(1).map((input, index) => {
           const adjustIndex = index + 1;
           return (
-            <FieldComponents
+            <RecruitmentComponents
               handleChangeInput={handleChangeInput}
               handleAddFieldOrBlock={handleAddFieldOrBlock}
               handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
@@ -62,4 +63,4 @@ const PositionForm: React.FC<PositionFormProps> = ({
   );
 };
 
-export default PositionForm;
+export default RecruitmentForm;
