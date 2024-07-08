@@ -1,5 +1,4 @@
 import { Box, Input, useTheme } from "@chakra-ui/react";
-import TitleBlock from "../../../../assets/title/title";
 import { handleChangeInputType } from "../../types/types";
 
 interface OverviewInputTitleProps {

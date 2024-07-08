@@ -8,8 +8,7 @@ import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
 } from "../../types/types";
-import FieldComponents from "./recruitmentComponet";
-import RecruitmentComponents from "./recruitmentComponet";
+import RecruitmentComponent from "./recruitmentComponent";
 
 interface RecruitmentFormProps {
   inputs: projectDetailDataType;
@@ -29,7 +28,7 @@ const RecruitmentForm: React.FC<RecruitmentFormProps> = ({
     <>
       <Box w={"90%"} mb={4}>
         <TitleBlock value="募集ポジション" />
-        <RecruitmentComponents
+        <RecruitmentComponent
           handleChangeInput={handleChangeInput}
           handleAddFieldOrBlock={handleAddFieldOrBlock}
           handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
@@ -41,7 +40,7 @@ const RecruitmentForm: React.FC<RecruitmentFormProps> = ({
         {inputs.recruitment.slice(1).map((input, index) => {
           const adjustIndex = index + 1;
           return (
-            <RecruitmentComponents
+            <RecruitmentComponent
               handleChangeInput={handleChangeInput}
               handleAddFieldOrBlock={handleAddFieldOrBlock}
               handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}

@@ -1,9 +1,8 @@
-import { Box, Input, Textarea, VStack, useTheme } from "@chakra-ui/react";
+import { Box, Textarea, VStack } from "@chakra-ui/react";
 import {
   handleAddOrRemoveFieldOrBlockType,
   handleChangeInputType,
 } from "../../types/types";
-import TitleBlock from "../../../../assets/title/title";
 import { NextButton } from "../../../../assets/button/buttons";
 import OverviewDefaultTitle from "./overviewDefaultTitle";
 import OverviewInputTitle from "./overviewInputTitle";
@@ -23,7 +22,6 @@ const OverviewComponent: React.FC<OverviewComponentProps> = ({
   text,
   index = 0,
 }) => {
-  const theme = useTheme();
 
   return (
     <Box w={"90%"} mb={4}>

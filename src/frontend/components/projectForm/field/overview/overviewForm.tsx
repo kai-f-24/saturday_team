@@ -1,5 +1,3 @@
-import { Box, Input, Textarea, VStack, useTheme } from "@chakra-ui/react";
-import TitleBlock from "../../../../assets/title/title";
 import { NextButton } from "../../../../assets/button/buttons";
 import {
   handleAddOrRemoveFieldOrBlockType,
@@ -21,7 +19,6 @@ const OverviewForm: React.FC<OverviewFormProps> = ({
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
 }) => {
-  const theme = useTheme();
   return (
     <>
       <OverviewComponent

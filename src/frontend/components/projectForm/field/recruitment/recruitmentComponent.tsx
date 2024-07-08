@@ -17,7 +17,7 @@ import {
 } from "../../types/types";
 import { skillTagMap } from "../../../../maps/skillTagMap";
 
-interface RecruitmentComponentsProps {
+interface RecruitmentComponentProps {
   handleChangeInput: handleChangeInputType;
   handleAddFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   handleRemoveFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
@@ -27,7 +27,7 @@ interface RecruitmentComponentsProps {
   otherSkills: string[];
 }
 
-const RecruitmentComponents: React.FC<RecruitmentComponentsProps> = ({
+const RecruitmentComponent: React.FC<RecruitmentComponentProps> = ({
   handleChangeInput,
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
@@ -173,4 +173,4 @@ const RecruitmentComponents: React.FC<RecruitmentComponentsProps> = ({
   );
 };
 
-export default RecruitmentComponents;
+export default RecruitmentComponent;
