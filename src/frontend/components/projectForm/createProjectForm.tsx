@@ -10,6 +10,7 @@ import DateForm from "./field/date/dateForm";
 import TitleForm from "./field/title/titleForm";
 import OverviewForm from "./field/overview/overviewForm";
 import RecruitmentForm from "./field/recruitment/recruitmentForm";
+import { NextButton } from "../../assets/button/buttons";
 
 interface CreateProjectFormProps {
   inputs: projectDetailDataType;
@@ -24,32 +25,39 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
 }) => {
+
+  function handleSubmit() {
+    console.log(inputs);
+  }
+
   return (
-    <Flex
-      direction={"column"}
-      alignItems={"center"}
-      border={"2px"}
-      borderRadius={"4px"}
-      w={"700px"}
-    >
-      <TitleForm handleChangeInput={handleChangeInput} />
+      <Flex
+        direction={"column"}
+        alignItems={"center"}
+        border={"2px"}
+        borderRadius={"4px"}
+        w={"700px"}
+      >
+        <TitleForm handleChangeInput={handleChangeInput} />
 
-      <OverviewForm
-        inputs={inputs}
-        handleChangeInput={handleChangeInput}
-        handleAddFieldOrBlock={handleAddFieldOrBlock}
-        handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-      />
+        <OverviewForm
+          inputs={inputs}
+          handleChangeInput={handleChangeInput}
+          handleAddFieldOrBlock={handleAddFieldOrBlock}
+          handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+        />
 
-      <DateForm handleChangeInput={handleChangeInput} />
+        <DateForm handleChangeInput={handleChangeInput} />
 
-      <RecruitmentForm
-        inputs={inputs}
-        handleChangeInput={handleChangeInput}
-        handleAddFieldOrBlock={handleAddFieldOrBlock}
-        handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-      />
-    </Flex>
+        <RecruitmentForm
+          inputs={inputs}
+          handleChangeInput={handleChangeInput}
+          handleAddFieldOrBlock={handleAddFieldOrBlock}
+          handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+        />
+
+        <NextButton value="募集開始" onClick={handleSubmit} />
+      </Flex>
   );
 };
 

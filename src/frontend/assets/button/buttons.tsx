@@ -32,7 +32,7 @@ interface nextButtonProps {
   value?: string;
   customStyles?: Partial<typeof defaultNextButtonStyles>;
   onClick?: () => void;
-  icon?: "plus" | "trash"
+  icon?: "plus" | "trash";
 }
 
 const defaultNextButtonStyles = {

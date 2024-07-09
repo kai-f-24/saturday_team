@@ -22,7 +22,6 @@ const OverviewComponent: React.FC<OverviewComponentProps> = ({
   text,
   index = 0,
 }) => {
-
   return (
     <Box w={"90%"} mb={4}>
       {index === 0 ? (

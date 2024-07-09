@@ -1,6 +1,4 @@
-import {
-  Box,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import TitleBlock from "../../../../assets/title/title";
 import { NextButton } from "../../../../assets/button/buttons";
 import { projectDetailDataType } from "../../../../../backend/sampleData/projectData/projectDetailData";
@@ -23,36 +21,23 @@ const RecruitmentForm: React.FC<RecruitmentFormProps> = ({
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
 }) => {
-
   return (
     <>
       <Box w={"90%"} mb={4}>
         <TitleBlock value="募集ポジション" />
-        <RecruitmentComponent
-          handleChangeInput={handleChangeInput}
-          handleAddFieldOrBlock={handleAddFieldOrBlock}
-          handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-          maximumNumberOfPeople={inputs.recruitment[0].maximumNumberOfPeople}
-          skillsArray={inputs.recruitment[0].skills}
-          otherSkills={inputs.recruitment[0].otherSkills}
-        />
-
-        {inputs.recruitment.slice(1).map((input, index) => {
-          const adjustIndex = index + 1;
-          return (
-            <RecruitmentComponent
-              handleChangeInput={handleChangeInput}
-              handleAddFieldOrBlock={handleAddFieldOrBlock}
-              handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-              index={adjustIndex}
-              maximumNumberOfPeople={
-                inputs.recruitment[adjustIndex].maximumNumberOfPeople
-              }
-              skillsArray={inputs.recruitment[adjustIndex].skills}
-              otherSkills={inputs.recruitment[adjustIndex].otherSkills}
-            />
-          );
-        })}
+        {inputs.recruitment.slice(0).map((input, index) => (
+          <RecruitmentComponent
+            key={index}
+            handleChangeInput={handleChangeInput}
+            handleAddFieldOrBlock={handleAddFieldOrBlock}
+            handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+            index={index}
+            position={input.title}
+            maximumNumberOfPeople={input.maximumNumberOfPeople}
+            skillsArray={input.skills}
+            otherSkills={input.otherSkills}
+          />
+        ))}
       </Box>
       <NextButton
         value="追加"

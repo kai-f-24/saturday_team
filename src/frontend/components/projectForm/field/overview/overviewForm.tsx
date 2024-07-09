@@ -4,7 +4,7 @@ import {
   handleChangeInputType,
 } from "../../types/types";
 import { projectDetailDataType } from "../../../../../backend/sampleData/projectData/projectDetailData";
-import OverviewComponent from "./overviewComponet";
+import OverviewComponent from "./overviewComponent";
 
 interface OverviewFormProps {
   inputs: projectDetailDataType;
@@ -21,25 +21,16 @@ const OverviewForm: React.FC<OverviewFormProps> = ({
 }) => {
   return (
     <>
-      <OverviewComponent
-        handleChangeInput={handleChangeInput}
-        handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-        text={inputs.overview[0].text}
-      />
-      {inputs.overview.slice(1).map((input, index) => {
-        const adjustIndex = index + 1;
-        return (
-          <>
-            <OverviewComponent
-              handleChangeInput={handleChangeInput}
-              handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
-              title={input.title}
-              text={input.text}
-              index={adjustIndex}
-            />
-          </>
-        );
-      })}
+      {inputs.overview.slice(0).map((input, index) => (
+        <OverviewComponent
+          key={index}
+          handleChangeInput={handleChangeInput}
+          handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+          title={input.title}
+          text={input.text}
+          index={index}
+        />
+      ))}
       <NextButton
         value="追加"
         onClick={() => handleAddFieldOrBlock("overview")}

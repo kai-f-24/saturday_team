@@ -22,6 +22,7 @@ interface RecruitmentComponentProps {
   handleAddFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   handleRemoveFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   index?: number;
+  position: string;
   maximumNumberOfPeople: number;
   skillsArray: string[];
   otherSkills: string[];
@@ -32,6 +33,7 @@ const RecruitmentComponent: React.FC<RecruitmentComponentProps> = ({
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
   index = 0,
+  position,
   maximumNumberOfPeople,
   skillsArray,
   otherSkills,
@@ -61,6 +63,7 @@ const RecruitmentComponent: React.FC<RecruitmentComponentProps> = ({
           <Box>
             <Text>役職名</Text>
             <Input
+              value={position}
               placeholder="役職名を入力"
               w="160px"
               onChange={(e) =>
@@ -100,7 +103,7 @@ const RecruitmentComponent: React.FC<RecruitmentComponentProps> = ({
               >
                 <Flex w="350px" wrap="wrap">
                   {Object.keys(skillTagMap).map((skillId) => (
-                    <Checkbox value={skillId} mr={2} mb={2}>
+                    <Checkbox key={skillId} value={skillId} mr={2} mb={2}>
                       {skillTagMap[skillId].skillName}
                     </Checkbox>
                   ))}
@@ -169,6 +172,17 @@ const RecruitmentComponent: React.FC<RecruitmentComponentProps> = ({
           </VStack>
         </GridItem>
       </Grid>
+      {index !== 0 ? (
+        <NextButton
+          value="削除"
+          customStyles={{ colorScheme: "red" }}
+          onClick={() =>
+            handleRemoveFieldOrBlock("recruitment", undefined, index)
+          }
+        />
+      ) : (
+        <></>
+      )}
     </VStack>
   );
 };
