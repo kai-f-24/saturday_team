@@ -6,6 +6,8 @@ import {
 import { NextButton } from "../../../../assets/button/buttons";
 import OverviewDefaultTitle from "./overviewDefaultTitle";
 import OverviewInputTitle from "./overviewInputTitle";
+import { UseFormRegister } from "react-hook-form";
+import { ProjectDetail } from "../../zod/zod";
 
 interface OverviewComponentProps {
   handleChangeInput: handleChangeInputType;
@@ -13,6 +15,7 @@ interface OverviewComponentProps {
   title?: string;
   text: string;
   index?: number;
+  register: UseFormRegister<ProjectDetail>
 }
 
 const OverviewComponent: React.FC<OverviewComponentProps> = ({

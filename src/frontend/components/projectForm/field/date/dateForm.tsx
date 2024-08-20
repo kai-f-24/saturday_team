@@ -1,9 +1,12 @@
 import { Box, Grid, GridItem, Input, Text, VStack } from "@chakra-ui/react";
 import TitleBlock from "../../../../assets/title/title";
 import { handleChangeInputType } from "../../types/types";
+import { UseFormRegister } from "react-hook-form";
+import { ProjectDetail } from "../../zod/zod";
 
 interface DateFormProps {
   handleChangeInput: handleChangeInputType;
+  register: UseFormRegister<ProjectDetail>
 }
 
 const DateForm: React.FC<DateFormProps> = ({ handleChangeInput }) => {

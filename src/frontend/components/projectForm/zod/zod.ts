@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export type ProjectDetail = z.infer<typeof projectDetailScheme>
+
 const overviewScheme = z.object({
   title: z.string().min(1, { message: "概要のタイトルは必須です" }),
   text: z.string().min(1, { message: "概要のテキストは必須です" }),

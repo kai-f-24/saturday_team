@@ -8,6 +8,10 @@ import EditProjectForm from "./editProjectForm";
 import { ChangeEvent, useState } from "react";
 import { changingValue } from "./formUtils/extends/changingValue";
 import { changingFieldOrBlock } from "./formUtils/extends/changingFieldOrBlock";
+import { ProjectDetail, projectDetailScheme } from "./zod/zod";
+import { ZodError, z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface ProjectProps {
   projectDetailInfo?: projectDetailDataType;
@@ -16,6 +20,21 @@ interface ProjectProps {
 
 const ProjectForm = ({ projectDetailInfo }: ProjectProps) => {
   const [inputs, setInput] = useState<projectDetailDataType>(initialInput);
+  // const [errors, setErrors] = useState<projectDetailDataType>(initialInput);
+
+  // type ProjectDetail = z.infer<typeof projectDetailScheme>
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm <ProjectDetail>({
+    resolver: zodResolver(projectDetailScheme)
+  })
+
+  function onSubmit(data: ProjectDetail) {
+    console.log(data);
+  }
 
   const handleChangeInput = (
     e:
@@ -58,7 +77,18 @@ const ProjectForm = ({ projectDetailInfo }: ProjectProps) => {
         throw new Error("filedが設定されてないよー");
     }
     console.log(newProjectData);
+    console.log(errors);
     setInput(newProjectData);
+
+    try {
+      projectDetailScheme.shape[field].parse(value);
+    } catch (error) {
+      // if (error instanceof ZodError) {
+      //   const errorMessage = error.errors[0]?.message || "Validation error";
+      //   setErrors((prevErrors) => ({ ...prevErrors, [name]: errorMessage }));
+      //   console.log(errors);
+      // }
+    }
   };
 
   const handleAddFieldOrBlock = (
@@ -128,6 +158,8 @@ const ProjectForm = ({ projectDetailInfo }: ProjectProps) => {
             handleChangeInput={handleChangeInput}
             handleAddFieldOrBlock={handleAddFieldOrBlock}
             handleRemoveFieldOrBlock={handleRemoveFieldOrBlock}
+              register={register}
+              errors={errors}
           />
         )}
       </VStack>

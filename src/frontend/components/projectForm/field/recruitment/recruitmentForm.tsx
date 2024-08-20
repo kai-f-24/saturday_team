@@ -7,12 +7,15 @@ import {
   handleChangeInputType,
 } from "../../types/types";
 import RecruitmentComponent from "./recruitmentComponent";
+import { UseFormRegister } from "react-hook-form";
+import { ProjectDetail } from "../../zod/zod";
 
 interface RecruitmentFormProps {
   inputs: projectDetailDataType;
   handleChangeInput: handleChangeInputType;
   handleAddFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   handleRemoveFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
+  register: UseFormRegister<ProjectDetail>
 }
 
 const RecruitmentForm: React.FC<RecruitmentFormProps> = ({

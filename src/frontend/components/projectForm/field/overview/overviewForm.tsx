@@ -5,12 +5,15 @@ import {
 } from "../../types/types";
 import { projectDetailDataType } from "../../../../../backend/sampleData/projectData/projectDetailData";
 import OverviewComponent from "./overviewComponent";
+import { UseFormRegister } from "react-hook-form";
+import { ProjectDetail } from "../../zod/zod";
 
 interface OverviewFormProps {
   inputs: projectDetailDataType;
   handleChangeInput: handleChangeInputType;
   handleAddFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
   handleRemoveFieldOrBlock: handleAddOrRemoveFieldOrBlockType;
+  register: UseFormRegister<ProjectDetail>
 }
 
 const OverviewForm: React.FC<OverviewFormProps> = ({
@@ -18,6 +21,7 @@ const OverviewForm: React.FC<OverviewFormProps> = ({
   handleChangeInput,
   handleAddFieldOrBlock,
   handleRemoveFieldOrBlock,
+  register
 }) => {
   return (
     <>
@@ -29,6 +33,7 @@ const OverviewForm: React.FC<OverviewFormProps> = ({
           title={input.title}
           text={input.text}
           index={index}
+          register={register}
         />
       ))}
       <NextButton
